@@ -20,7 +20,7 @@ Service based app.
 
 ## Creating an admin user
 ```
-py manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 ## Services 

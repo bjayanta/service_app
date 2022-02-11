@@ -10,6 +10,6 @@ class Todo(models.Model):
 
     label = models.CharField(max_length=100)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES)
-    reminder
-    created_at
-    updated_at
+    reminder = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
