@@ -3,6 +3,8 @@
 {% block content %}
 <div>
     <h2>All Records</h2>
+    <a href="{% url 'todo.create' %}">+ Create </a>
+
     <table>
         <thead>
             <tr>
@@ -15,15 +17,20 @@
         </thead>
 
         <tbody>
+            {% for record in records %}
             <tr>
-                <td></td>
+                <td>{{ record.id }}</td>
+                <td>{{ record.label }}</td>
+                <td>{{ record.status }}</td>
+                <td>{{ record.reminder }}</td>
+                <td>
+                    <a href="{% url 'todo.edit' %}">Details</a>
+                    <a href="#">Change</a>
+                    <a href="#">Remove</a>
+                </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
-    <p>{% lorem 4 b random %}</p>
-
-    <div>
-        <a href="{% url 'todo.create' %}">+ Create </a>
-    </div>
 </div>
 {% endblock content %}
