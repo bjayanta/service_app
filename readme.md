@@ -24,3 +24,25 @@ python manage.py createsuperuser
 ```
 
 ## Services 
+
+## Virtual environment
+To install:
+```
+pip install virtualenv
+```
+
+To create an environment:
+```
+python -m venv <environment name>
+```
+
+Go to environment directory & start:
+```
+cd <environment name>\Scripts\
+activate.bat
+```
+
+To deactive:
+```
+deactivate
+```
