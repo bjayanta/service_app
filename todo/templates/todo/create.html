@@ -1,0 +1,17 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<div>
+    <h2>Create </h2>
+    
+    {% comment %} todo create form {% endcomment %}
+    <form action="{% url 'todo.store' %}" method="post">
+        {% csrf_token %}
+        {{ todoForm.as_p }}
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'todo.index' %}">All records</a>
+</div>
+{% endblock content %}

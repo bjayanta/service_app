@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo </title>
+</head>
+<body>
+
+    {% comment %} message {% endcomment %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                {% if message.tags %}<h4>{{ message.tags }}</h4>{% endif %}
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    {# Content goes to here #}
+    {% block content %}{% endblock content %}
+
+</body>
+</html>

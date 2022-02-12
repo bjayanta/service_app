@@ -1,0 +1,29 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<div>
+    <h2>All Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>SL</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Reminder</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>{% lorem 4 b random %}</p>
+
+    <div>
+        <a href="{% url 'todo.create' %}">+ Create </a>
+    </div>
+</div>
+{% endblock content %}
