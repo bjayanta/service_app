@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import TodoForm
 from .models import Todo
@@ -33,12 +34,15 @@ def store(request):
     # redirect
     return redirect('todo.create')
 
-def edit(request):
-    pass
+def edit(request, id):
+    data = Todo.objects.get(pk=id)
+    todoForm = TodoForm(instance=data)
+    
+    return render(request, 'todo/edit.html', {'todoForm': todoForm, 'id': id})
 
-def update(request):
-    pass
-
+def update(request, id):
+    return HttpResponse(f'Todo ID is {id}')
+    
 def show(request):
     pass
 

@@ -24,9 +24,9 @@
                 <td>{{ record.status }}</td>
                 <td>{{ record.reminder }}</td>
                 <td>
-                    <a href="{% url 'todo.edit' %}">Details</a>
-                    <a href="#">Change</a>
-                    <a href="#">Remove</a>
+                    {% comment %} <a href="{% url 'todo.show' record.id %}">Details</a> {% endcomment %}
+                    <a href="{% url 'todo.edit' %}">Change</a>
+                    {% comment %} <a href="{% url 'todo.delete' record.id %}">Remove</a> {% endcomment %}
                 </td>
             </tr>
             {% endfor %}

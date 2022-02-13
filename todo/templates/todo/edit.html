@@ -1,0 +1,17 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<div>
+    <h2>Change</h2>
+
+    <form action="{% url 'todo.update' id %}" method="post">
+        {% csrf_token %}
+
+        {{ todoForm.as_p }}
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="{% url 'todo.index' %}">All records</a>
+</div>
+{% endblock content %}
