@@ -41,10 +41,26 @@ def edit(request, id):
     return render(request, 'todo/edit.html', {'todoForm': todoForm, 'id': id})
 
 def update(request, id):
-    return HttpResponse(f'Todo ID is {id}')
+    # return HttpResponse(f'Todo ID is {id}')
+
+    # check the method
+    if request.method == 'POST':
+        todo = Todo.objects.get(pk=id)
+        todoForm = TodoForm(request.POST, instance=todo) # create instance
+
+        # check the validation
+        if todoForm.is_valid():
+            todoForm.save()
+
+            # message
+            messages.add_message(request, messages.SUCCESS, 'Todo has been updated successfully.')
     
-def show(request):
-    pass
+    # template 
+    return redirect('todo.index')
+
+def show(request, id):
+    todo = Todo.objects.get(pk=id)
+    return render(request, 'todo/show.html', {'todo': todo})
 
 def delete(request):
     pass

@@ -12,6 +12,8 @@
                 <th>Task</th>
                 <th>Status</th>
                 <th>Reminder</th>
+                <th>Created at</th>
+                <th>Updated at</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
@@ -23,10 +25,12 @@
                 <td>{{ record.label }}</td>
                 <td>{{ record.status }}</td>
                 <td>{{ record.reminder }}</td>
+                <td>{{ record.created_at }}</td>
+                <td>{{ record.updated_at }}</td>
                 <td>
-                    {% comment %} <a href="{% url 'todo.show' record.id %}">Details</a> {% endcomment %}
-                    <a href="{% url 'todo.edit' %}">Change</a>
-                    {% comment %} <a href="{% url 'todo.delete' record.id %}">Remove</a> {% endcomment %}
+                    <a href="{% url 'todo.show' record.id %}">Details</a>
+                    <a href="{% url 'todo.edit' record.id %}">Change</a>
+                    <a href="{% url 'todo.delete' record.id %}">Remove</a>
                 </td>
             </tr>
             {% endfor %}

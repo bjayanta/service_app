@@ -1,0 +1,28 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<div>
+    <h2>Show</h2>
+
+    <div>
+        <h3>{{ todo.label }}</h3>
+
+        <p>
+            <span>Created at {{ todo.created_at }}</span> &
+            <span>Last updated at {{ todo.updated_at }}</span>
+        </p>
+
+        <p>
+            Status <br>
+            <strong>{{ todo.status }}</strong>
+        </p>
+        
+        <p>
+            Reminder <br>
+            <strong>{{ todo.reminder }}</strong>
+        </p>
+    </div>
+
+    <a href="{% url 'todo.index' %}">All records</a>
+</div>
+{% endblock content %}
