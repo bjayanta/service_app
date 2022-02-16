@@ -30,7 +30,11 @@
                 <td>
                     <a href="{% url 'todo.show' record.id %}">Details</a>
                     <a href="{% url 'todo.edit' record.id %}">Change</a>
-                    <a href="{% url 'todo.delete' record.id %}">Remove</a>
+                    <a href="#" onclick="if(confirm('Are you sure want to delete?')){document.getElementById('delete-{{ record.id }}').submit();}">Remove</a>
+
+                    <form action="{% url 'todo.delete' record.id %}" method="post" id="delete-{{ record.id }}">
+                        {% csrf_token %}
+                    </form>
                 </td>
             </tr>
             {% endfor %}

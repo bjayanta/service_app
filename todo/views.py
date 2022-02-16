@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, HttpResponseRedirect, render
 from .forms import TodoForm
 from .models import Todo
 from django.contrib import messages
@@ -62,5 +62,13 @@ def show(request, id):
     todo = Todo.objects.get(pk=id)
     return render(request, 'todo/show.html', {'todo': todo})
 
-def delete(request):
-    pass
+def delete(request, id):
+    # return HttpResponse(f'Todo ID is {id}')
+
+    if request.method == 'POST':
+        todo = Todo.objects.get(pk=id)
+        todo.delete()
+
+    
+    # redirect via url
+    return HttpResponseRedirect('/todo/') 
